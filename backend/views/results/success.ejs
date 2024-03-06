@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/variables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,400;6..12,700&display=swap" rel="stylesheet">
+    <title>Sucess</title>
+</head>
+<body>
+
+    
+    <main class="main set-padding">
+        <h1 class="message"><%= fileName %> <%= message %></h1>
+        <% if (create) { %>
+            <h3 class="file-name">File name: <%= fileName %> </h3>
+            <h3 class="file-content">File content: <%= fileContent %></h3>
+            
+        <% } %>
+        <a href="/" class="user-action-button">Go to Homepage</a>
+    </main>
+</body>
+</html>

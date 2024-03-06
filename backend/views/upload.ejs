@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/variables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,400;6..12,700&display=swap" rel="stylesheet">
+    <title>Create new File</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="main set-padding">
+        <h3 class="head-sentence">Please Choose file to upload <span class="note">(You can upload up to 5 files with a maximum size of 5 MB)</span> </h2>
+        <form action="/upload-file" method="POST" enctype="multipart/form-data" class="create-form">
+            <div class="form-group">
+                <label for="upload-form-file">Upload File:</label>
+                <input type="file" id="upload-form-file" name="files" multiple>
+            </div>
+            <button type="submit" class="user-action-button">Upload</button>
+        </form>
+        <section>
+            <h3 class="head-sentence">Your uploaded files:</h3>
+            <ul class="files-list">
+                <% uploadedFiles.forEach(function(file) { %>
+                    <li class="item files-flex">
+                        <a href="/uploads/<%= file %>" class="file-link"><%= file %></a>
+                        <a href="/download/<%= file %>" class="download-button" download>Download</a>
+                    </li>
+                <% }); %>
+            </ul>
+            <a href="/download-all" class="download-button all-button" download="files.zip">Download all Files</a>
+        </section>
+    </main>
+</body>
+</html>

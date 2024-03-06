@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/variables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,400;6..12,700&display=swap" rel="stylesheet">
+    <title>File Management REST API</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="main set-padding">
+        <div class="welcome">
+            <h2 class="welcome-header">Hello User</h2>
+            <p class="welcome-msg">You can create, search, upload, retrieve your uploaded files and download them</p>
+        </div>
+        <section class="user-actions">
+            <a href="/create-file" class="user-action-button">Create File</a>
+            <a href="/upload-file" class="user-action-button">Upload and Retrieve Files</a>
+        </section>
+        <section class="search">
+            <form action="/search">
+                <input type="search" id="searchInput" placeholder="Enter file name" name="q">
+                <button class="search-btn">Search</button>
+            </form>
+        </section>
+        <section class="files">
+            <h3>Available Files:</h3>
+            <ul class="files-list ">
+                <% files.forEach(function(file) { %>
+                    <li class="item files-flex"><a href="/files/<%= file %>" class="file-link"><%= file %></a></li>
+                <% }); %>
+            </ul>
+            <h3>The following files are uploaded:</h3>
+            <ul class="files-list">
+                <% uploadedFiles.forEach(function(file) { %>
+                    <li class="item files-flex"><a href="/uploads/<%= file %>" class="file-link"><%= file %></a></li>
+                <% }); %>
+            </ul>
+        </section>
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    
+}
+
+
+a {
+    text-decoration: none;
+    
+}
+
+.flex-sb {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.nav a {
+
+    color: var(--header-text);
+    
+}
+
+.nav-links a {
+
+    padding-left: 20px;
+    font-size: 1.2em;
+}
+.header {
+    background-color: var(--header-bg);
+    font-size: 1em;
+    
+}
+
+.set-padding {
+
+    padding: 20px 6%;
+}
+
+.welcome {
+
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.user-action-button {
+    color: var(--border-clr);
+    border: 1px solid var(--border-clr);
+    background-color: var(--btn-bg);
+    padding: 4px 8px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.files {
+
+    margin-top: 50px;
+}
+
+.item {
+
+    margin-left: 2%;
+    padding-bottom: 15px;
+}
+
+.files h3 {
+
+    margin-bottom: 20px;
+}
+
+.file-content {
+
+    margin-bottom: 50px;
+}
+
+.file-name {
+    text-decoration: underline;
+}
+
+.message {
+
+    margin-bottom: 30px;
+}
+
+.file-link {
+
+   text-decoration: underline;
+   
+}
+
+
+.files-list {
+
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.files-list li {
+
+    width: 50%;
+}
+
+
+.head-sentence {
+    margin-top: 2px;
+    margin-bottom: 20px;
+}
+
+.download-button {
+
+    color: var(--border-clr);
+    border: 1px solid var(--border-clr);
+    background-color: #337357;
+    padding: 2px 4px;
+    font-size: 1em;
+    border-radius: 5px;
+    
+}
+
+.note {
+
+    font-size: .7em;
+    font-weight: 400;
+    font-style: italic;
+    
+}
+
+.files-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.search {
+
+    margin-top: 20px;
+}
+
+.search-btn, #searchInput {
+    
+    padding: 2px 4px;
+    font-size: 1em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+
+} 
+
+.search-btn {
+
+    color: var(--border-clr);
+    border: 1px solid var(--border-clr);
+    background-color: #40679E;
+    padding: 2px 4px;
+    font-size: 1em;
+    border-radius: 5px;
+
+}

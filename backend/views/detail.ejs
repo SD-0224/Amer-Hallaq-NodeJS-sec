@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/variables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,400;6..12,700&display=swap" rel="stylesheet">
+    <title>File Detail</title>
+</head>
+<body>
+
+    <%- include('partials/header') %>
+    <main class="main set-padding">
+        <h1>File Name: <span class="file-name"><%= name %></span> </h1>
+        <p class="file-content"><%= content %></p>
+        <section class="user-actions">
+            <a href="/update-file/<%= name %>" class="user-action-button">Update</a>
+            <a href="/delete-file/<%= name %>" class="user-action-button">Delete</a>
+        </section>
+    </main>
+</body>
+</html>
