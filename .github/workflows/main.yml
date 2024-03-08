@@ -22,5 +22,6 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
+        working-directory: week5_fileManagement_project/backend
       - name: Run tests
         run: npm test
