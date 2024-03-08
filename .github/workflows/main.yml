@@ -1,9 +1,9 @@
-name: Run tests
+name: Run Tests
 
 on:
   push:
     branches:
-      - master
+      - 'master'
 
   workflow_dispatch:
 
@@ -21,6 +21,6 @@ jobs:
           node-version: 20.11
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
       - name: Run tests
         run: npm test
