@@ -3,6 +3,8 @@ import path from "path"
 import zip from "express-zip"
 //import archiver from "archiver"
 
+
+//list all files and render the homepage
 async function listFiles(req,res)  {
     const folderPath='./data/';
     const data=await fse.readdir(folderPath,'utf8')
@@ -10,6 +12,7 @@ async function listFiles(req,res)  {
     res.render('index',{files:data});
 }
 
+//render the create form for user to create a new file
 const showCreateForm = (req,res) => {
 
     const fileName=req.params.filename;
@@ -17,6 +20,7 @@ const showCreateForm = (req,res) => {
     res.render('create',{fileName:fileName});
 }
 
+// show the file details when user click on the file name
 const showFileDetails = async (req,res) => {
     
     const name=req.params.filename
@@ -33,6 +37,7 @@ const showFileDetails = async (req,res) => {
 }
 
 
+//create a new file when user submit a create form 
 const createNewFile = (req,res) => {
     console.log(req.body);
     const fileName=req.body.name;
@@ -40,16 +45,16 @@ const createNewFile = (req,res) => {
     const filePath=path.join("data",fileName)
     fse.writeFile(filePath,fileContent)
     .then( () => {
-        // res.render("results/success",{fileName:fileName, fileContent:fileContent,message:"was successfully created",create:true})
         res.redirect('/')    
     }
     )
     .catch((err) => {
         console.error(err);
     })
-
 }
 
+
+//delete the file when user send a delete request
 const deleteFile = async (req,res) => {
     console.log(req)
     const fileName=req.params.filename;
@@ -58,7 +63,7 @@ const deleteFile = async (req,res) => {
     try {
         await fse.unlink(filePath);
         res.status(200).send("was successfully deleted")
-        // res.render("results/success",{fileName:fileName, message:"was successfully deleted"})
+        res.render("results/success",{fileName:fileName, message:"was successfully deleted"})
       } catch (err) {
         console.error(err);
         res.status(500).send('Failed to delete the file');
@@ -66,6 +71,7 @@ const deleteFile = async (req,res) => {
     
 }
 
+//update the file name when user send an update request
 const UpdateFileName = async (req,res) => {
     console.log("I want to update")
 
@@ -98,6 +104,7 @@ const UpdateFileName = async (req,res) => {
     });
 }
 
+//show a form for user to upload a new file
 const showUploadForm = async (req,res) => {
 
     const filePath='./data/';;
@@ -108,6 +115,8 @@ const showUploadForm = async (req,res) => {
 
 }
 
+
+//handle the upload request 
 const uploadNewFile = (req,res) => {
         
         try {
@@ -120,6 +129,7 @@ const uploadNewFile = (req,res) => {
           }      
 }
 
+//allow user to download a file on his machine
 const downloadFile = async (req,res) => {
     
     const fileName = req.params.filename;
@@ -133,18 +143,10 @@ const downloadFile = async (req,res) => {
             console.log(err)
         }
     });
-    // try {
-    //     // Check if the file exists
-    //     await fse.access(filePath, fse.constants.F_OK)
-    // } catch(err) {
-    //     return res.status(404).send('File not found');
-    //   }
-  
-    // // Stream the file to the client
-    // const fileStream = fse.createReadStream(filePath);
-    // fileStream.pipe(res);
+    
   }
 
+  //allow user to download all files as zipped file
   const downloadAllFiles = (req,res) => {
 
     const filePath=path.join("data");
@@ -163,6 +165,7 @@ const downloadFile = async (req,res) => {
     });
   }
 
+  //render search results when a user enters a specific value of file name
   const searchFiles = async (req,res) => {
 
     const searchVal=req.query.q;
@@ -180,9 +183,7 @@ const downloadFile = async (req,res) => {
         if(searchResults.length<1) {
             res.json({message:"There are no results matching the input name"})
         }
-        
         res.json(searchResults);
-        
         
     } catch(err) {
         console.log(err)

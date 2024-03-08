@@ -22,14 +22,15 @@ app.use(express.json());
 
 
 
-
+//Server app on the port 3000
 app.listen(3000, () => {
     console.log("Express app is listening on the port 3000!");
 });
 
-//List files in the homepage
+//use routes in the routes folder
 app.use(file_routes);
 
+//if file routes are not available render the root('/')
 if(!file_routes) {
 
     app.get('/', (req, res) => {
