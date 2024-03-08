@@ -26,7 +26,7 @@
             <ul class="files-list">
                 <% uploadedFiles.forEach(function(file) { %>
                     <li class="item files-flex">
-                        <a href="/uploads/<%= file %>" class="file-link"><%= file %></a>
+                        <a href="/files/<%= file %>" class="file-link"><%= file %></a>
                         <a href="/download/<%= file %>" class="download-button" download>Download</a>
                     </li>
                 <% }); %>

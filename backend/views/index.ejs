@@ -17,31 +17,29 @@
             <h2 class="welcome-header">Hello User</h2>
             <p class="welcome-msg">You can create, search, upload, retrieve your uploaded files and download them</p>
         </div>
-        <section class="user-actions">
-            <a href="/create-file" class="user-action-button">Create File</a>
-            <a href="/upload-file" class="user-action-button">Upload and Retrieve Files</a>
-        </section>
-        <section class="search">
-            <form action="/search">
+        <div class="user-interaction-div">
+            <section class="search-bar">
                 <input type="search" id="searchInput" placeholder="Enter file name" name="q">
-                <button class="search-btn">Search</button>
-            </form>
-        </section>
+                <button class="search-btn" onclick="searchFiles()" tytpe="submit">Search</button>
+            </section>
+            <section class="user-actions">
+                <a href="/create-file" class="user-action-button">Create File</a>
+                <a href="/upload-file" class="user-action-button">Upload and Retrieve Files</a>
+            </section>
+        </div>
+        <div class="search-result">
+            <ul id="searchResults" class="files-list"></ul>
+        </div>
+        
         <section class="files">
-            <h3>Available Files:</h3>
-            <ul class="files-list ">
+            <h3>List of your files:</h3>
+            <ul class="files-list">
                 <% files.forEach(function(file) { %>
                     <li class="item files-flex"><a href="/files/<%= file %>" class="file-link"><%= file %></a></li>
                 <% }); %>
             </ul>
-            <h3>The following files are uploaded:</h3>
-            <ul class="files-list">
-                <% uploadedFiles.forEach(function(file) { %>
-                    <li class="item files-flex"><a href="/uploads/<%= file %>" class="file-link"><%= file %></a></li>
-                <% }); %>
-            </ul>
         </section>
     </main>
-    
+    <script src="/scripts.js"></script>
 </body>
 </html>

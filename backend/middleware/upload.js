@@ -5,7 +5,7 @@ import multer from "multer"
 const storage= multer.diskStorage({
     destination: (req, file, setDest) => {
         
-        setDest(null, 'uploads/');
+        setDest(null, 'data/');
     },
     filename: (req, file, setName) => {
       setName(null,file.originalname);

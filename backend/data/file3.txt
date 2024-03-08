@@ -1,6 +1,0 @@
-The ES6 is a JavaScript standard. With the help of ES6, we can create modules in JavaScript.
-In a module, there can be classes, functions, variables, and objects as well.
-To make all these available in another file, we can use export and import.
-The export and import are the keywords used for exporting and importing one or more members in a module.
-Export: You can export a variable using the export keyword in front of that variable declaration.
-You can also export a function and a class by doing the same.

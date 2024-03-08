@@ -55,11 +55,12 @@ a {
     color: var(--border-clr);
     border: 1px solid var(--border-clr);
     background-color: var(--btn-bg);
-    padding: 4px 8px;
-    font-size: 1.5em;
+    padding: 4px 6px;
+    font-size: 1.2em;
     border-radius: 5px;
     margin-bottom: 50px;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 .files {
@@ -116,7 +117,7 @@ a {
     margin-bottom: 20px;
 }
 
-.download-button {
+.download-button, .update-button {
 
     color: var(--border-clr);
     border: 1px solid var(--border-clr);
@@ -142,9 +143,10 @@ a {
     
 }
 
-.search {
+.search-bar {
 
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .search-btn, #searchInput {
@@ -160,9 +162,25 @@ a {
 
     color: var(--border-clr);
     border: 1px solid var(--border-clr);
-    background-color: #40679E;
+    background-color: var(--btn-bg);
     padding: 2px 4px;
     font-size: 1em;
     border-radius: 5px;
+    cursor: pointer;
 
+}
+
+.user-interaction-div {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update-form {
+    margin-top: 20px;
+}
+
+#updateForm {
+    display: none;
 }
