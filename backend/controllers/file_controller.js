@@ -191,6 +191,16 @@ const downloadFile = async (req,res) => {
 
   }
 
+  function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+export { add, subtract };
+
 export { listFiles,
          showCreateForm,
          showFileDetails, 
